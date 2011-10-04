@@ -70,17 +70,6 @@ Caveats
   gevent by using the 'sync' backend (as detailed by the Gunicorn
   documentation) instead of the gevent one.
 
-* Foreman is a tool written in Ruby with a standalone tarball that
-  only requires the interpreter itself.  Unfortunately I found a bug
-  in the standalone package, so I had to patch it.  The modified
-  source is included in the vendor/foreman directory.  Vendoring the
-  full project feels a bit excessive, but as long as one must use a
-  Procfile to use Heroku, one may as well write two Procfiles, rather
-  than a Procfile and a shell script.
-
-  The bug is reported, and when foreman is re-freshed to a new version
-  no patches will likely be necessary.
-
 TODO
 ----
 
