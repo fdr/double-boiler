@@ -138,6 +138,10 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+
+    'djcelery',
+    'djkombu',
+    'gunicorn'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -162,3 +166,8 @@ LOGGING = {
         },
     }
 }
+
+import djcelery
+djcelery.setup_loader()
+BROKER_BACKEND = "djkombu.transport.DatabaseTransport"
+CELERY_RESULT_DBURI = DATABASES['default']
