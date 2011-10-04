@@ -1,0 +1,2 @@
+web:      bin/python hellodjango/manage.py run_gunicorn --worker-class=gevent --bind=0.0.0.0:$PORT
+worker:   bin/python hellodjango/manage.py celeryd -E -B --loglevel=INFO
