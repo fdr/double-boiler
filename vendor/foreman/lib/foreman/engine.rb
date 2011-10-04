@@ -113,7 +113,7 @@ private ######################################################################
 
     begin
       Dir.chdir directory do
-        PTY.spawn(runner, process.command) do |stdin, stdout, pid|
+        PTY.spawn(process.command) do |stdin, stdout, pid|
           trap("SIGTERM") { Process.kill("SIGTERM", pid) }
           until stdin.eof?
             info stdin.gets, process
@@ -216,10 +216,6 @@ private ######################################################################
     end
 
     environment
-  end
-
-  def runner
-    File.expand_path("../../../bin/foreman-runner", __FILE__)
   end
 
   def terminate_gracefully
