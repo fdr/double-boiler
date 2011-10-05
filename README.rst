@@ -55,6 +55,14 @@ Caveats
 
     $ heroku run hellodjango/manage.py syncdb
 
+* Heroku (and some other services with a similar model) might idle out
+  processes on their platforms.  That means some things like scheduled
+  tasks will not work so well, should one's application not receive a
+  steady stream of traffic.  Some creativity can be used (look at
+  `Heroku's cron`_ addon, for example) to assist with these use cases.
+
+.. _Heroku's cron: http://addons.heroku.com/cron
+
 * There has been no attempt to try tweaking the concurrency (aka
   number of forked workers) levels of Celery and Gunicorn to be
   sensible for Heroku.  If you see out of memory errors (Python calls
